@@ -1,37 +1,57 @@
-<section class="bg-gray-900 text-white p-8 rounded-xl shadow-xl max-w-4xl mx-auto my-10">
-  <h2 class="text-3xl font-bold mb-4 border-b border-gray-700 pb-2">Deploying Active Directory in a Windows Home Lab</h2>
+<!-- index.html (Main Introductory Page) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Alex Madden | Home</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header>
+<h1>Alex Madden (D4RKNESS)</h1>
+<p>IT Technician in transition • Experimental bass producer • Problem solver</p>
+<nav>
+<a href="index.html">Home</a>
+<a href="projects.html">Projects</a>
+</nav>
+</header>
 
-  <p class="text-lg mb-6">In this project, I built a full Windows Active Directory environment from scratch to simulate an enterprise IT setup. It includes a Windows Server 2022 domain controller, a Windows 10 client, and full DNS, GPO, and scripting integration — all in a virtualized lab.</p>
 
-  <ul class="list-disc list-inside text-base mb-6 space-y-2">
-    <li><strong>Tools Used:</strong> VirtualBox, Windows Server 2022, Windows 10, PowerShell, draw.io</li>
-    <li><strong>Domain:</strong> madden.local</li>
-    <li><strong>Server IP:</strong> 192.168.1.10 — <strong>Client IP:</strong> 192.168.1.11</li>
-    <li><strong>Networking:</strong> Internal NAT, DNS pointing to DC01</li>
-  </ul>
-
-  <h3 class="text-2xl font-semibold mb-2 mt-6">Key Features</h3>
-  <ul class="list-disc list-inside mb-6 space-y-2">
-    <li>Promoted Server 2022 to Domain Controller</li>
-    <li>Created custom Organizational Units (IT, HR, Sales)</li>
-    <li>Used PowerShell to create users and set passwords</li>
-    <li>Joined Windows 10 client to the domain</li>
-    <li>Enforced Group Policies: custom wallpaper, blocked control panel, mapped network drives, login banner</li>
-  </ul>
-
-  <h3 class="text-2xl font-semibold mb-2 mt-6">Sample PowerShell Snippet</h3>
-  <pre class="bg-gray-800 p-4 rounded-md overflow-x-auto text-sm mb-6"><code>New-ADUser -Name "jmadden" -GivenName "Josh" -Surname "Madden" -SamAccountName "jmadden" -UserPrincipalName "jmadden@madden.local" -AccountPassword (ConvertTo-SecureString "P@ssw0rd123" -AsPlainText -Force) -Enabled $true -Path "OU=IT,DC=madden,DC=local"</code></pre>
-
-  <h3 class="text-2xl font-semibold mb-2">What's Included</h3>
-  <ul class="list-disc list-inside mb-6 space-y-2">
-    <li>✅ Screenshots (DC setup, OU creation, domain join)</li>
-    <li>✅ draw.io network diagram</li>
-    <li>✅ PowerShell script file</li>
-    <li>✅ (Optional) YouTube walkthrough video</li>
-  </ul>
-
-  <h3 class="text-2xl font-semibold mb-2">Skills Demonstrated</h3>
-  <p class="text-base mb-4">Active Directory deployment, Windows Server management, domain networking, user/group admin, PowerShell scripting, and GPO design.</p>
-
-  <p class="italic text-gray-400 text-sm">Next steps: add DHCP, Linux domain client, and Event Log auditing.</p>
+<main>
+<section>
+<h2>Welcome</h2>
+<p>
+I'm Alex — a hands-on mechanic turned IT professional, actively building my
+skills in networking, cybersecurity, and systems administration. When I’m not
+wrenching or learning new tech, I’m creating heavy cyberpunk bass as D4RKNESS.
+</p>
 </section>
+
+
+<section>
+<h2>Certifications</h2>
+<ul>
+<li>CompTIA ITF+</li>
+<li>CompTIA A+</li>
+<li>CompTIA Network+</li>
+<li>In Progress: Security+, MS-900</li>
+</ul>
+</section>
+
+
+<section>
+<h2>About This Site</h2>
+<p>
+This site is built from scratch to showcase my IT projects, lab setups, and personal
+journey into the tech world. Click on <a href="projects.html">Projects</a> to explore more.
+</p>
+</section>
+</main>
+
+
+<footer>
+<p>© 2025 Alex Madden | alexmadden.tech</p>
+</footer>
+</body>
+</html>
