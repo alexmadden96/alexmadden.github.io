@@ -1,23 +1,37 @@
-<hr style="margin: 3rem auto; width: 80%; border: 1px solid #444;" />
+<section class="bg-gray-900 text-white p-8 rounded-xl shadow-xl max-w-4xl mx-auto my-10">
+  <h2 class="text-3xl font-bold mb-4 border-b border-gray-700 pb-2">Deploying Active Directory in a Windows Home Lab</h2>
 
-<section>
-  <h2 style="font-size: 2rem;">🛠️ Projects</h2>
+  <p class="text-lg mb-6">In this project, I built a full Windows Active Directory environment from scratch to simulate an enterprise IT setup. It includes a Windows Server 2022 domain controller, a Windows 10 client, and full DNS, GPO, and scripting integration — all in a virtualized lab.</p>
 
-  <div style="margin-bottom: 2rem;">
-    <h3 style="color: #00ffaa;">Home Lab Virtualization</h3>
-    <p>Built a full Windows Server 2022 + Ubuntu lab using VirtualBox. Practiced AD, DNS, DHCP, GPOs, and multi-VM networking.</p>
-    <a href="https://github.com/yourusername/homelab-virtualization" target="_blank" style="color: #aaa;">GitHub Repo</a>
-  </div>
+  <ul class="list-disc list-inside text-base mb-6 space-y-2">
+    <li><strong>Tools Used:</strong> VirtualBox, Windows Server 2022, Windows 10, PowerShell, draw.io</li>
+    <li><strong>Domain:</strong> madden.local</li>
+    <li><strong>Server IP:</strong> 192.168.1.10 — <strong>Client IP:</strong> 192.168.1.11</li>
+    <li><strong>Networking:</strong> Internal NAT, DNS pointing to DC01</li>
+  </ul>
 
-  <div style="margin-bottom: 2rem;">
-    <h3 style="color: #00ffaa;">Help Desk Ticket Simulator</h3>
-    <p>Simulated IT ticketing environment with mock incidents. Created walkthroughs of password resets, user provisioning, MFA config, etc.</p>
-    <a href="https://youtu.be/your-video-id" target="_blank" style="color: #aaa;">Watch on YouTube</a>
-  </div>
+  <h3 class="text-2xl font-semibold mb-2 mt-6">Key Features</h3>
+  <ul class="list-disc list-inside mb-6 space-y-2">
+    <li>Promoted Server 2022 to Domain Controller</li>
+    <li>Created custom Organizational Units (IT, HR, Sales)</li>
+    <li>Used PowerShell to create users and set passwords</li>
+    <li>Joined Windows 10 client to the domain</li>
+    <li>Enforced Group Policies: custom wallpaper, blocked control panel, mapped network drives, login banner</li>
+  </ul>
 
-  <div style="margin-bottom: 2rem;">
-    <h3 style="color: #00ffaa;">Cyberpunk Portfolio Theme</h3>
-    <p>Designed a dark-themed HTML/CSS portfolio with animated glitch effects. Represents my DJ aesthetic as D4RKNESS.</p>
-    <a href="https://github.com/yourusername/cyberpunk-portfolio" target="_blank" style="color: #aaa;">GitHub Repo</a>
-  </div>
+  <h3 class="text-2xl font-semibold mb-2 mt-6">Sample PowerShell Snippet</h3>
+  <pre class="bg-gray-800 p-4 rounded-md overflow-x-auto text-sm mb-6"><code>New-ADUser -Name "jmadden" -GivenName "Josh" -Surname "Madden" -SamAccountName "jmadden" -UserPrincipalName "jmadden@madden.local" -AccountPassword (ConvertTo-SecureString "P@ssw0rd123" -AsPlainText -Force) -Enabled $true -Path "OU=IT,DC=madden,DC=local"</code></pre>
+
+  <h3 class="text-2xl font-semibold mb-2">What's Included</h3>
+  <ul class="list-disc list-inside mb-6 space-y-2">
+    <li>✅ Screenshots (DC setup, OU creation, domain join)</li>
+    <li>✅ draw.io network diagram</li>
+    <li>✅ PowerShell script file</li>
+    <li>✅ (Optional) YouTube walkthrough video</li>
+  </ul>
+
+  <h3 class="text-2xl font-semibold mb-2">Skills Demonstrated</h3>
+  <p class="text-base mb-4">Active Directory deployment, Windows Server management, domain networking, user/group admin, PowerShell scripting, and GPO design.</p>
+
+  <p class="italic text-gray-400 text-sm">Next steps: add DHCP, Linux domain client, and Event Log auditing.</p>
 </section>
