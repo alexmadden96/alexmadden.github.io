@@ -1,0 +1,64 @@
+<section id="ad-lab">
+  <h2>🧠 Project: Active Directory Domain Controller Setup (Home Lab)</h2>
+
+  <p>This project simulates a real-world Windows Server environment where I configured a Domain Controller using Windows Server 2022 and began building an enterprise-like Active Directory setup from scratch.</p>
+
+  <h3>🛠️ Step 1: Server 2022 VM Prep</h3>
+  <ul>
+    <li>Created a Windows Server 2022 VM in VirtualBox</li>
+    <li>Fully updated the OS using Windows Update</li>
+    <li>Renamed the server to <strong>AD-DC1</strong></li>
+    <li>Set a static IP address:
+      <ul>
+        <li>IP: <code>192.168.xx.xx</code></li>
+        <li>Subnet: <code>255.255.255.0</code></li>
+        <li>Gateway: <code>192.168.xx.1</code></li>
+        <li>DNS: <code>127.0.0.1</code></li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>⚙️ Step 2: Install Active Directory Domain Services (AD DS)</h3>
+  <ul>
+    <li>Installed AD DS via <strong>Server Manager → Add roles and features</strong></li>
+    <li>Promoted the server to a Domain Controller</li>
+    <li>Created new forest: <code>madden.local</code></li>
+    <li>Set DSRM password and documented it securely</li>
+    <li>Restarted the server after promotion</li>
+  </ul>
+
+  <h3>🌐 Step 3: DNS Configuration</h3>
+  <ul>
+    <li>Confirmed DNS role was installed with AD DS</li>
+    <li>Opened <strong>DNS Manager → Forwarders</strong></li>
+    <li>Configured external DNS forwarders:
+      <ul>
+        <li>8.8.8.8 (Google)</li>
+        <li>1.1.1.1 (Cloudflare)</li>
+      </ul>
+    </li>
+    <li>Verified internet access using ping/nslookup</li>
+  </ul>
+
+  <h3>👥 Step 4: Create OUs and User Accounts</h3>
+  <ul>
+    <li>Used <strong>Active Directory Users and Computers (ADUC)</strong></li>
+    <li>Created Organizational Units:
+      <ul>
+        <li>IT</li>
+        <li>HR</li>
+        <li>Sales</li>
+      </ul>
+    </li>
+    <li>Created users and assigned to OUs:
+      <ul>
+        <li>ajones (IT)</li>
+        <li>tking (HR)</li>
+        <li>bsmith (Sales)</li>
+      </ul>
+    </li>
+    <li>Set secure passwords and added descriptions</li>
+  </ul>
+
+  <p>📸 Screenshots and video walkthroughs were captured throughout the process to visually document the setup and configuration.</p>
+</section>
