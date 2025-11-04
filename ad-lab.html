@@ -86,6 +86,45 @@
     <li>Set secure passwords, changed password age to 90 days, and added descriptions</li>
     <img src="ad-lab pics/password age.png" alt="AD Lab Static IP" width="600" />
   </ul>
+    <h3>🖥️ Step 5: Set Up Windows 11 Client VM</h3>
+  <ul>
+    <li>Created a Windows 11 Pro VM in VirtualBox</li>
+    <li>Set the VM's network to the same <strong>Internal Network</strong> as the Server</li>
+    <li>Configured static IP:
+      <ul>
+        <li>IP: <code>192.168.68.60</code></li>
+        <li>Subnet: <code>255.255.255.0</code></li>
+        <li>Gateway: <code>192.168.68.1</code></li>
+        <li>DNS: <code>192.168.68.50</code> (the AD server)</li>
+      </ul>
+    </li>
+    <li>Renamed client to <strong>W11-CLIENT</strong></li>
+    <img src="ad-lab pics/client-ip.png" alt="Static IP for Client" width="600" />
+    <li>Joined the machine to the domain <strong>madden.local</strong> using domain credentials</li>
+    <img src="ad-lab pics/domain-join.png" alt="Client joined to domain" width="600" />
+    <li>Restarted and logged in as domain user <code>ajones@madden.local</code></li>
+    <img src="ad-lab pics/login-ajones.png" alt="Domain user login" width="600" />
+  </ul>
+
+  <h3>🔒 Step 6: Group Policy Objects (GPOs)</h3>
+  <ul>
+    <li>Opened <strong>Group Policy Management</strong> on Server</li>
+    <li>Created and linked GPOs to each OU:
+      <ul>
+        <li><strong>HR GPO:</strong> Disabled Control Panel for HR users</li>
+        <li><strong>IT GPO:</strong> Mapped network drive Z: to <code>\\ad-lab\ITShared</code></li>
+        <li><strong>IT GPO:</strong> Set a custom wallpaper for IT users</li>
+      </ul>
+    </li>
+    <img src="ad-lab pics/gpo-summary.png" alt="GPO Setup Summary" width="600" />
+    <li>Placed wallpaper BMP in shared folder on the server: <code>C:\ITShared\wallpapers\itwall.bmp</code></li>
+    <li>Confirmed domain users in the appropriate OUs received the settings on login</li>
+    <img src="ad-lab pics/it-wallpaper.png" alt="Wallpaper applied via GPO" width="600" />
+    <img src="ad-lab pics/zdrive.png" alt="IT Shared Drive Z Mapped" width="600" />
+  </ul>
+
+  <p>🎯 Each GPO was tested with domain logins on the client VM, confirming successful mapping, restrictions, and visual customization.</p>
+
 
   <p>📸 Screenshots and video walkthroughs were captured throughout the process to visually document the setup and configuration.</p>
 </section>
