@@ -90,20 +90,17 @@
   <ul>
     <li>Created a Windows 11 Pro VM in VirtualBox</li>
     <li>Set the VM's network to the same <strong>Internal Network</strong> as the Server</li>
-    <li>Configured static IP:
+    <li>Configured DNS:
       <ul>
-        <li>IP: <code>192.168.68.60</code></li>
-        <li>Subnet: <code>255.255.255.0</code></li>
-        <li>Gateway: <code>192.168.68.1</code></li>
         <li>DNS: <code>192.168.68.50</code> (the AD server)</li>
       </ul>
     </li>
     <li>Renamed client to <strong>W11-CLIENT</strong></li>
-    <img src="ad-lab pics/client-ip.png" alt="Static IP for Client" width="600" />
+    <img src="ad-lab pics/DNS SET1.png" alt="Static IP for Client" width="600" />
     <li>Joined the machine to the domain <strong>madden.local</strong> using domain credentials</li>
-    <img src="ad-lab pics/domain-join.png" alt="Client joined to domain" width="600" />
+    <img src="ad-lab pics/fixed domain2.png" alt="Client joined to domain" width="600" />
     <li>Restarted and logged in as domain user <code>ajones@madden.local</code></li>
-    <img src="ad-lab pics/login-ajones.png" alt="Domain user login" width="600" />
+    <img src="ad-lab pics/log in3.png" alt="Domain user login" width="600" />
   </ul>
 
   <h3>🔒 Step 6: Group Policy Objects (GPOs)</h3>
@@ -113,6 +110,10 @@
       <ul>
         <li><strong>HR GPO:</strong> Disabled Control Panel for HR users</li>
         <li><strong>IT GPO:</strong> Mapped network drive Z: to <code>\\ad-lab\ITShared</code></li>
+        <img src="ad-lab pics/map network drive 1.png" alt="GPO Setup Summary" width="600" />
+        <img src="ad-lab pics/created shared drive.png" alt="GPO Setup Summary" width="600" />
+        <img src="ad-lab pics/made shared folder.png" alt="GPO Setup Summary" width="600" />
+        <img src="ad-lab pics/proof of shared drive.png" alt="GPO Setup Summary" width="600" />
         <li><strong>IT GPO:</strong> Set a custom wallpaper for IT users</li>
       </ul>
     </li>
