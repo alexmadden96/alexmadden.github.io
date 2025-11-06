@@ -108,20 +108,19 @@
     <li>Opened <strong>Group Policy Management</strong> on Server</li>
     <li>Created and linked GPOs to each OU:
       <ul>
-        <li><strong>HR GPO:</strong> Disabled Control Panel for HR users</li>
         <li><strong>IT GPO:</strong> Mapped network drive Z: to <code>\\ad-lab\ITShared</code></li>
         <img src="ad-lab pics/map network drive 1.png" alt="GPO Setup Summary" width="600" />
         <img src="ad-lab pics/created shared drive.png" alt="GPO Setup Summary" width="600" />
         <img src="ad-lab pics/made shared folder.png" alt="GPO Setup Summary" width="600" />
         <img src="ad-lab pics/proof of shared drive.png" alt="GPO Setup Summary" width="600" />
         <li><strong>IT GPO:</strong> Set a custom wallpaper for IT users</li>
+        <img src="ad-lab pics/Wallpaper5.png" alt="IT Shared Drive Z Mapped" width="600" />
       </ul>
     </li>
     <img src="ad-lab pics/gpo-summary.png" alt="GPO Setup Summary" width="600" />
     <li>Placed wallpaper BMP in shared folder on the server: <code>C:\ITShared\wallpapers\itwall.bmp</code></li>
+      <img src="ad-lab pics/proof-in-shared-folder" alt="IT Shared Drive Z Mapped" width="600" />
     <li>Confirmed domain users in the appropriate OUs received the settings on login</li>
-    <img src="ad-lab pics/it-wallpaper.png" alt="Wallpaper applied via GPO" width="600" />
-    <img src="ad-lab pics/zdrive.png" alt="IT Shared Drive Z Mapped" width="600" />
   </ul>
 
   <p>🎯 Each GPO was tested with domain logins on the client VM, confirming successful mapping, restrictions, and visual customization.</p>
