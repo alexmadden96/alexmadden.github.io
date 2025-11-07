@@ -92,12 +92,9 @@ footer {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 aspect ratio */
   height: 0;
-  width: 700px;           /* Fixed width for consistent sizing */
-  max-width: 100%;        /* Responsive fallback */
-  margin: 2rem 0;         /* Top & bottom spacing only */
-  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Optional: soft shadow */
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .video-container iframe {
@@ -106,7 +103,6 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  border: none;
 }
 
 
