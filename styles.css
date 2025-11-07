@@ -1,5 +1,3 @@
-/* styles.css */
-
 /* Reset some defaults */
 body, h1, h2, p, ul, li, a {
   margin: 0;
@@ -34,10 +32,13 @@ header p {
 
 nav {
   margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 nav a {
   margin-right: 15px;
+  margin-bottom: 10px;
   text-decoration: none;
   color: #58a6ff;
   transition: color 0.3s ease;
@@ -59,6 +60,7 @@ section {
 section h2 {
   color: #79c0ff;
   margin-bottom: 15px;
+  font-size: 1.5rem;
 }
 
 section ul {
@@ -87,6 +89,15 @@ footer {
   color: #8b949e;
   border-top: 1px solid #30363d;
 }
+
+/* Images should scale on small screens */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 1rem;
+}
+
 /* YouTube Video Embed – Left-Aligned & Responsive */
 .video-left {
   position: relative;
@@ -107,11 +118,28 @@ footer {
 
 /* Make everything adapt nicely on smaller screens */
 @media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  section h2 {
+    font-size: 1.25rem;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
   .video-left {
     max-width: 100%;
-    aspect-ratio: 16 / 9;
+  }
+
+  body {
+    padding: 10px;
   }
 }
+
 
 
 
