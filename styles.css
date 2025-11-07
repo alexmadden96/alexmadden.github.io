@@ -87,35 +87,32 @@ footer {
   color: #8b949e;
   border-top: 1px solid #30363d;
 }
-/* Video embed container (customized) */
+/* YouTube Video Embed – Left-Aligned & Responsive */
 .video-left {
-  width: 560px;
-  height: 315px;
-  overflow: hidden;
-  margin-bottom: 2rem;
-}
-
-.video-left iframe {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.video-responsive {
   position: relative;
   width: 100%;
-  max-width: 560px; /* Keeps it from being too wide on desktop */
+  max-width: 560px;
   aspect-ratio: 16 / 9;
   margin-bottom: 2rem;
 }
 
-.video-responsive iframe {
+.video-left iframe {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  border: none;
 }
+
+/* Make everything adapt nicely on smaller screens */
+@media (max-width: 768px) {
+  .video-left {
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+}
+
 
 
 
