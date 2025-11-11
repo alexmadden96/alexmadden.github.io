@@ -1,0 +1,93 @@
+<section class="lab-section">
+  <h1>Network Connectivity Troubleshooting Lab</h1>
+  <p>
+    This lab simulates multiple real-world help desk scenarios involving network connectivity issues. 
+    Each case demonstrates how to diagnose, test, and resolve problems using common Windows tools and commands.
+  </p>
+
+  <h2>Environment</h2>
+  <ul>
+    <li>Windows 11 virtual machine (client)</li>
+    <li>Host system or router for connectivity tests</li>
+    <li>PowerShell and Command Prompt for diagnostics</li>
+    <li>Event Viewer for log review</li>
+  </ul>
+
+  <hr>
+
+  <h2>Scenario 1: Wrong DNS Configuration</h2>
+  <p><strong>Symptom:</strong> User is connected to Wi-Fi but cannot browse the web.</p>
+  <p><strong>Diagnosis:</strong></p>
+  <pre><code>ipconfig /all
+ping 8.8.8.8
+ping google.com
+nslookup google.com</code></pre>
+  <p>Ping to IP works, but DNS name fails. Issue traced to incorrect DNS entry.</p>
+  <p><strong>Fix:</strong></p>
+  <pre><code>ipconfig /flushdns
+ipconfig /renew</code></pre>
+  <p>Set DNS to <code>8.8.8.8</code> or automatic and verify connection restored.</p>
+
+  <hr>
+
+  <h2>Scenario 2: IP Address Conflict</h2>
+  <p><strong>Symptom:</strong> User reports random disconnections and “IP conflict detected.”</p>
+  <p><strong>Diagnosis:</strong></p>
+  <pre><code>ipconfig /all
+ping 192.168.1.1</code></pre>
+  <p>Two systems share the same static IP.</p>
+  <p><strong>Fix:</strong> Set adapter to DHCP or assign a unique static IP. Confirm with continuous ping test.</p>
+
+  <hr>
+
+  <h2>Scenario 3: Corrupted Network Stack</h2>
+  <p><strong>Symptom:</strong> Shows “Connected, no internet” with an APIPA (169.254.x.x) address.</p>
+  <p><strong>Diagnosis:</strong></p>
+  <pre><code>ipconfig /all
+ipconfig /renew</code></pre>
+  <p><strong>Fix:</strong></p>
+  <pre><code>netsh winsock reset
+netsh int ip reset</code></pre>
+  <p>Reboot system and verify DHCP lease and connectivity.</p>
+
+  <hr>
+
+  <h2>Scenario 4: Proxy Misconfiguration</h2>
+  <p><strong>Symptom:</strong> Ping tests work, but no websites load in the browser.</p>
+  <p><strong>Diagnosis:</strong> Proxy enabled under 
+  <em>Internet Options → Connections → LAN Settings.</em></p>
+  <p><strong>Fix:</strong> Disable proxy, refresh browser, confirm access restored.</p>
+
+  <hr>
+
+  <h2>Commands Summary</h2>
+  <table>
+    <thead>
+      <tr><th>Purpose</th><th>Command</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>View network info</td><td><code>ipconfig /all</code></td></tr>
+      <tr><td>Ping test</td><td><code>ping 8.8.8.8</code></td></tr>
+      <tr><td>Flush DNS cache</td><td><code>ipconfig /flushdns</code></td></tr>
+      <tr><td>Reset Winsock</td><td><code>netsh winsock reset</code></td></tr>
+      <tr><td>Reset TCP/IP stack</td><td><code>netsh int ip reset</code></td></tr>
+    </tbody>
+  </table>
+
+  <hr>
+
+  <h2>Reflection</h2>
+  <p>
+    These scenarios reinforced a structured troubleshooting process — verifying each network layer, 
+    isolating causes, and documenting results clearly. The lab demonstrates how to think through 
+    connection issues from the adapter level to DNS and application layers.
+  </p>
+
+  <h2>Screenshots</h2>
+  <ul>
+    <li>ipconfig output showing incorrect DNS</li>
+    <li>Failed ping and nslookup results</li>
+    <li>Winsock reset command</li>
+    <li>Successful ping and browser access after fix</li>
+  </ul>
+</section>
