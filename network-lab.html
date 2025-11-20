@@ -17,9 +17,7 @@
       <a href="https://www.linkedin.com/in/alex-madden-338aa3196/" target="_blank">LinkedIn</a>
     </nav>
   </header>
-  <h2>🧠 Project: Active Directory Domain Controller Setup (Home Lab)</h2>
-  
-  <h1>Network Connectivity Troubleshooting Lab</h1>
+  <h2>Network Connectivity Troubleshooting Lab</h2>
   <p>
     This lab simulates multiple real-world help desk scenarios involving network connectivity issues. 
     Each case demonstrates how to diagnose, test, and resolve problems using common Windows tools and commands.
@@ -48,10 +46,12 @@
     allowfullscreen>
   </iframe>
 </div>
-  <pre><code>ipconfig /all
-ping 8.8.8.8
-ping google.com
-nslookup google.com</code></pre>
+    <h3>🛠️ Step 1: Test Connection In Command Prompt</h3>
+  <ul>
+    <li>ipconfig /all</li>
+    <li>ping 8.8.8.8</li>
+    <li>ping google.com</li>
+ </ul>
   <p>Ping to IP works, but DNS name fails. Issue traced to incorrect DNS entry.</p>
   <p><strong>Fix:</strong></p>
   <pre><code>ipconfig /flushdns
