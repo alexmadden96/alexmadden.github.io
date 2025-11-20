@@ -34,7 +34,7 @@
   <hr>
 
   <h2>Scenario 1: Wrong DNS Configuration</h2>
-  <p><strong>Symptom:</strong> User is connected to Wi-Fi but cannot browse the web.</p>
+  <p><strong>Problem:</strong> User is connected to Wi-Fi but cannot browse the web.</p>
   <img src="ad-lab pics/Step 1 problem.png" alt="AD Lab Rename Step 1" width="600" />
     <h3>🎥 Walkthrough Video</h3>
 <p>Watch a full walkthrough of the AD lab below:</p>
@@ -46,7 +46,7 @@
   </iframe>
 </div>
   <p><strong>Step by Step Diagnosis:</strong></p>
-    <h3>🛠️ Step 1: Test Connection In Command Prompt</h3>
+    <h3>🛠️ Test Theory to Confirm the Problem</h3>
   <ul>
     <li>ipconfig /all</li>
     <li>ping 8.8.8.8</li>
@@ -54,10 +54,16 @@
     <img src="ad-lab pics/ipconfig all.png" alt="ipconfig" width="600" />
     <img src="ad-lab pics/ping 8.8.8.8.png" alt="AD Lab Rename Step 1" width="600" />
     <img src="ad-lab pics/ns lookup.png" alt="AD Lab Rename Step 1" width="600" />
-    
  </ul>
+  <h3><strong>Conclusion</strong></h3>
   <p>Ping to IP works, but DNS name fails. Issue traced to incorrect DNS entry.</p>
-  <p><strong>Fix:</strong></p>
+  <h3><strong>Fix the Problem</strong></h3>
+    <ul>
+    <li>Go into nework adapter and adjust DNS settings to DHCP</li>
+  <h3><strong>Verify the Solution</strong></h3>
+    <li>ping 8.8.8.8</li>
+    <li>nslookup google.com</li>
+ </ul>
   <pre><code>ipconfig /flushdns
 ipconfig /renew</code></pre>
   <p>Set DNS to <code>8.8.8.8</code> or automatic and verify connection restored.</p>
