@@ -61,13 +61,18 @@
     <ul>
     <li>Go into nework adapter settings and adjust DNS settings to DHCP</li>
     <img src="ad-lab pics/change back 1.png" alt="changed step 1" width="600" />
-    <img src="ad-lab pics/change back 2.pngg" alt="changed step 2" width="600" />
+    <img src="ad-lab pics/change back 2.png" alt="changed step 2" width="600" />
   <h3><strong>Verify the Solution</strong></h3>
     <li>ping 8.8.8.8</li>
     <li>nslookup google.com</li>
+    <li>ipconfig /flushdns</li>
+    <li>ipconfig /renew</li>
+    <img src="ad-lab pics/ping fixed.png" alt="ping fixed" width="600" />
+    <img src="ad-lab pics/nslookup fix.png" alt="nslookupfix" width="600" />
+    <img src="ad-lab pics/ipconfig all confirm.pngg" alt="ipconfig fixed" width="600" />
+    <img src="ad-lab pics/flush dns.png" alt="flush dns" width="600" />
+    <img src="ad-lab pics/renew dns.png" alt="renew dns" width="600" />
  </ul>
-  <pre><code>ipconfig /flushdns
-ipconfig /renew</code></pre>
   <p>Set DNS to <code>8.8.8.8</code> or automatic and verify connection restored.</p>
 
   <hr>
