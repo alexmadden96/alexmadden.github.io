@@ -36,7 +36,6 @@
   <h2>Scenario 1: Wrong DNS Configuration</h2>
   <p><strong>Symptom:</strong> User is connected to Wi-Fi but cannot browse the web.</p>
   <img src="ad-lab pics/Step 1 problem.png" alt="AD Lab Rename Step 1" width="600" />
-  <p><strong>Diagnosis:</strong></p>
     <h3>🎥 Walkthrough Video</h3>
 <p>Watch a full walkthrough of the AD lab below:</p>
 <div class="video-left">
@@ -46,11 +45,17 @@
     allowfullscreen>
   </iframe>
 </div>
+  <p><strong>Step by Step Diagnosis:</strong></p>
     <h3>🛠️ Step 1: Test Connection In Command Prompt</h3>
   <ul>
     <li>ipconfig /all</li>
     <li>ping 8.8.8.8</li>
-    <li>ping google.com</li>
+    <li>ping google.com<li>
+    <li>nslookup google.com</li>
+    <img src="ad-lab pics/ipconfig all.png" alt="ipconfig" width="600" />
+    <img src="ad-lab pics/ping 8.8.8.8.png" alt="AD Lab Rename Step 1" width="600" />
+    <img src="ad-lab pics/ns lookup.png" alt="AD Lab Rename Step 1" width="600" />
+    
  </ul>
   <p>Ping to IP works, but DNS name fails. Issue traced to incorrect DNS entry.</p>
   <p><strong>Fix:</strong></p>
