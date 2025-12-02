@@ -76,17 +76,34 @@
   <hr>
 
   <h2>Scenario 2: IP Address Conflict</h2>
-  <p><strong>Symptom:</strong> User reports random disconnections and “IP conflict detected.”</p>
-  <p><strong>Diagnosis:</strong></p>
-  <pre><code>ipconfig /all
-ping 192.168.1.1</code></pre>
-  <p>Two systems share the same static IP.</p>
-  <p><strong>Fix:</strong> Set adapter to DHCP or assign a unique static IP. Confirm with continuous ping test.</p>
+  <p><strong>Problem:</strong> The workstation randomly loses connectivity and shows timeouts when trying to reach the network gateway or external sites. This points to a possible IP address conflict on the network.</p>
+  <img src="ad-lab pics/Step 1 problem.png" alt="Scenario 2 initial problem" width="600" />
 
-  <hr>
+  <h3>🎥 Walkthrough Video</h3>
+  <p>Watch a full walkthrough of the IP conflict troubleshooting below:</p>
+  <div class="video-left">
+    <iframe src="https://www.youtube.com/embed/NP43RZG8NEg?si=A3AD4oNHj9iSWgNF" 
+      title="Network Connectivity Troubleshooting – Scenario 2"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+  </div>
 
-  <h2>Scenario 3: Corrupted Network Stack</h2>
+  <p><strong>Step by Step Diagnosis:</strong></p>
+
+  <h3>🛠️ Test Theory to Confirm the Problem</h3>
+  <ul>
+    <li>ipconfig /all</li>
+    <li>ping 10.0.2.2 (default gateway)</li>
+    <li>ping google.com</li>
+    <li>arp -a (optional check for conflicting MAC entries)</li>
+    <img src="ad-lab pics/ipconfig all.png" alt="ipconfig static IP" width="600" />
+    <img src="ad-lab pics/ping 8.8.8.8.png" alt="AD Lab Rename Step 1" width="600" />
+
+      
+<h2>Scenario 3: Corrupted Network Stack</h2>
   <p><strong>Symptom:</strong> Shows “Connected, no internet” with an APIPA (169.254.x.x) address.</p>
+  
   <p><strong>Diagnosis:</strong></p>
   <pre><code>ipconfig /all
 ipconfig /renew</code></pre>
@@ -136,3 +153,8 @@ netsh int ip reset</code></pre>
     <li>Successful ping and browser access after fix</li>
   </ul>
 </section>
+
+
+
+
+    
