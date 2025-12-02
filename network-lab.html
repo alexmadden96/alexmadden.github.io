@@ -98,7 +98,33 @@
     <li>ping google.com</li>
     <li>arp -a (optional check for conflicting MAC entries)</li>
     <img src="ad-lab pics/ipconfig all.png" alt="ipconfig static IP" width="600" />
-    <img src="ad-lab pics/ping 8.8.8.8.png" alt="AD Lab Rename Step 1" width="600" />
+    <img src="ad-lab pics/ping 8.8.8.8.png" alt="Ping default gateway showing loss" width="600" />
+    <img src="ad-lab pics/ns lookup.png" alt="Ping to domain failing" width="600" />
+  </ul>
+
+  <h3><strong>Conclusion</strong></h3>
+  <p>Pings to the gateway and external hosts show unreachable messages and packet loss, while <code>ipconfig /all</code> reveals a manually assigned IP that matches another device on the network. This confirms an IP address conflict.</p>
+
+  <h3><strong>Fix the Problem</strong></h3>
+  <ul>
+    <li>Open the network adapter IPv4 settings and switch IP and DNS back to DHCP (Obtain an IP address automatically).</li>
+    <img src="ad-lab pics/change back 1.png" alt="Switch adapter back to DHCP step 1" width="600" />
+    <img src="ad-lab pics/change back 2.png" alt="Switch adapter back to DHCP step 2" width="600" />
+    <li>ipconfig /release</li>
+    <li>ipconfig /renew</li>
+    <img src="ad-lab pics/flush dns.png" alt="Release IP lease" width="600" />
+    <img src="ad-lab pics/renew dns.png" alt="Renew IP lease" width="600" />
+
+  <h3><strong>Verify the Solution</strong></h3>
+    <li>ipconfig /all (confirm a new, unique IP address is assigned)</li>
+    <li>ping 10.0.2.2</li>
+    <li>ping google.com</li>
+    <img src="ad-lab pics/ping fixed.png" alt="Stable ping to gateway" width="600" />
+    <img src="ad-lab pics/nslookup fix.png" alt="Ping to domain successful" width="600" />
+    <img src="ad-lab pics/ipconfig all confirm.png" alt="ipconfig showing corrected IP" width="600" />
+  </ul>
+  <hr>
+
 
       
 <h2>Scenario 3: Corrupted Network Stack</h2>
