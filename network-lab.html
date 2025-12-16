@@ -124,68 +124,55 @@
   </ul>
   <hr>
 
-
-      
+  
   <h2>Scenario 3: APIPA / 169.254 Address (DHCP Failure)</h2>
-  <p><strong>Problem:</strong> The workstation is using a 169.254.x.x address with no default gateway, so it can’t reach the local network or the internet. This simulates a DHCP failure where the system falls back to an APIPA-style address.</p>
-  <!-- Problem screenshot img goes here -->
+  <p><strong>Problem:</strong> The workstation assigns itself a 169.254.x.x address with no default gateway, which indicates a failure to obtain a valid IP configuration from DHCP and results in no network or internet connectivity.</p>
+  <img src="ad-lab pics/3 -1.png" alt="Scenario 3 Problem" width="600" />
 
   <h3>🎥 Walkthrough Video</h3>
-  <p>Below is the script I used while recording the Scenario 3 APIPA troubleshooting video.</p>
-  <!-- YouTube embed goes here -->
+  <p>Watch a full walkthrough of the APIPA and DHCP troubleshooting below:</p>
+  <div class="video-left">
+    <iframe src="https://www.youtube.com/embed/VIDEOID" 
+      title="Network Connectivity Troubleshooting – Scenario 3"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+  </div>
 
-  <h3>Video Script</h3>
+  <p><strong>Step by Step Diagnosis:</strong></p>
 
-  <p><strong>Intro</strong></p>
-  <p>“Here I’m troubleshooting a Windows VM that’s stuck on a 169.254 address with no default gateway, so it can’t reach anything on the network or the internet.”</p>
-
-  <p><strong>Step 1 – Show the current configuration</strong></p>
-  <p>“I start by checking the current network configuration.”</p>
-  <pre><code>ipconfig /all</code></pre>
-  <p>“You can see the IPv4 address is set to <code>169.254.50.25</code> with a subnet mask of <code>255.255.0.0</code>. There’s no default gateway and no DNS server configured. With a 169.254 address and no gateway, this system is isolated and can’t reach the rest of the network.”</p>
-
-  <p><strong>Step 2 – Prove there’s no connectivity</strong></p>
-  <p>“Next I test basic connectivity to the router and the internet.”</p>
-  <pre><code>ping 192.168.68.1
-ping 8.8.8.8
-ping google.com</code></pre>
-  <p>“All of these fail. It can’t reach the local gateway, it can’t reach an external IP, and it can’t resolve a domain name. That confirms the 169.254 address doesn’t have a route off the local link.”</p>
-
-  <p><strong>Step 3 – Fix the configuration</strong></p>
-  <p>“To fix this, I switch the adapter back to DHCP so it can request a proper IP address, gateway, and DNS from the router.”</p>
-  <p>“In the IPv4 settings, I change it from the manual 169.254 configuration to:</p>
+  <h3>🛠️ Test Theory to Confirm the Problem</h3>
   <ul>
-    <li>Obtain an IP address automatically</li>
-    <li>Obtain DNS server address automatically</li>
+    <li>ipconfig /all</li>
+    <li>ping 192.168.68.1 (default gateway)</li>
+    <li>ping 8.8.8.8</li>
+    <li>ping google.com</li>
+    <img src="ad-lab pics/3 -1.png" alt="ipconfig showing 169.254 address" width="600" />
+    <img src="ad-lab pics/3 -2.png" alt="Ping gateway failure" width="600" />
+    <img src="ad-lab pics/3 -3.png" alt="Ping external IP failure" width="600" />
   </ul>
-  <p>“After that, I release and renew the lease.”</p>
-  <pre><code>ipconfig /release
-ipconfig /renew</code></pre>
 
-  <p><strong>Step 4 – Verify the new settings</strong></p>
-  <p>“Now I confirm that the VM has a valid configuration again.”</p>
-  <pre><code>ipconfig /all</code></pre>
-  <p>“Here you can see DHCP is enabled, the IPv4 address is back in the <code>192.168.68.x</code> range, there’s a valid default gateway of <code>192.168.68.1</code>, and DNS servers are set. That’s what I expect from a healthy DHCP setup.”</p>
+  <h3><strong>Conclusion</strong></h3>
+  <p>The system is assigned a 169.254.x.x address with no default gateway, which indicates a DHCP failure. Without a valid gateway or DNS configuration, the workstation is isolated and cannot reach the local network or the internet.</p>
 
-  <p><strong>Step 5 – Retest connectivity</strong></p>
-  <p>“Finally, I rerun the same connectivity tests.”</p>
-  <pre><code>ping 192.168.68.1
-ping 8.8.8.8
-ping google.com</code></pre>
-  <p>“All of these succeed now with stable replies, and the browser can load websites normally again.”</p>
+  <h3><strong>Fix the Problem</strong></h3>
+  <ul>
+    <li>Open the network adapter IPv4 settings and switch IP and DNS back to DHCP (Obtain an IP address automatically).</li>
+    <img src="ad-lab pics/3 -4.png" alt="APIPA IPv4 settings" width="600" />
+    <img src="ad-lab pics/3 -5 fixed.png" alt="DHCP restored IPv4 settings" width="600" />
+    <li>ipconfig /release</li>
+    <li>ipconfig /renew</li>
+    <img src="ad-lab pics/3 -6 fixed.png" alt="DHCP lease renewed" width="600" />
 
-  <p><strong>Outro</strong></p>
-  <p>“In this scenario, the system was stuck on a 169.254 APIPA-style address with no default gateway, which left it isolated from the network. Switching back to DHCP and renewing the lease gave it a valid IP, gateway, and DNS, and restored full connectivity.”</p>
-
-  <hr>
-
-  <hr>
-
-  <h2>Scenario 4: Proxy Misconfiguration</h2>
-  <p><strong>Symptom:</strong> Ping tests work, but no websites load in the browser.</p>
-  <p><strong>Diagnosis:</strong> Proxy enabled under 
-  <em>Internet Options → Connections → LAN Settings.</em></p>
-  <p><strong>Fix:</strong> Disable proxy, refresh browser, confirm access restored.</p>
+  <h3><strong>Verify the Solution</strong></h3>
+    <li>ipconfig /all (confirm a valid DHCP-assigned IP and default gateway)</li>
+    <li>ping 192.168.68.1</li>
+    <li>ping 8.8.8.8</li>
+    <li>ping google.com</li>
+    <img src="ad-lab pics/3 -7 fixed.png" alt="ipconfig showing valid IP" width="600" />
+    <img src="ad-lab pics/3 -8 fixed.png" alt="Ping external IP successful" width="600" />
+    <img src="ad-lab pics/3 -9 done.png" alt="google.com confirm" width="600" />
+  </ul>
 
   <hr>
 
