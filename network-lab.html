@@ -147,9 +147,7 @@
     <li>ping 192.168.68.1 (default gateway)</li>
     <li>ping 8.8.8.8</li>
     <li>ping google.com</li>
-    <img src="ad-lab pics/3 -1.png" alt="ipconfig showing 169.254 address" width="600" />
-    <img src="ad-lab pics/3 -2.png" alt="Ping gateway failure" width="600" />
-    <img src="ad-lab pics/3 -3.png" alt="Ping external IP failure" width="600" />
+    <img src="ad-lab pics/3 - 2.png" alt="ipconfig showing 169.254 address" width="600" />
   </ul>
 
   <h3><strong>Conclusion</strong></h3>
@@ -158,20 +156,19 @@
   <h3><strong>Fix the Problem</strong></h3>
   <ul>
     <li>Open the network adapter IPv4 settings and switch IP and DNS back to DHCP (Obtain an IP address automatically).</li>
-    <img src="ad-lab pics/3 -4.png" alt="APIPA IPv4 settings" width="600" />
-    <img src="ad-lab pics/3 -5 fixed.png" alt="DHCP restored IPv4 settings" width="600" />
+    <img src="ad-lab pics/3 - 3.png" alt="APIPA IPv4 settings" width="600" />
     <li>ipconfig /release</li>
     <li>ipconfig /renew</li>
-    <img src="ad-lab pics/3 -6 fixed.png" alt="DHCP lease renewed" width="600" />
+    <img src="ad-lab pics/3 - 4.png" alt="DHCP lease renewed" width="600" />
 
   <h3><strong>Verify the Solution</strong></h3>
     <li>ipconfig /all (confirm a valid DHCP-assigned IP and default gateway)</li>
     <li>ping 192.168.68.1</li>
     <li>ping 8.8.8.8</li>
     <li>ping google.com</li>
-    <img src="ad-lab pics/3 -7 fixed.png" alt="ipconfig showing valid IP" width="600" />
-    <img src="ad-lab pics/3 -8 fixed.png" alt="Ping external IP successful" width="600" />
-    <img src="ad-lab pics/3 -9 done.png" alt="google.com confirm" width="600" />
+    <img src="ad-lab pics/3 - 5.png" alt="ipconfig showing valid IP" width="600" />
+    <img src="ad-lab pics/3 - 6.png" alt="Ping external IP successful" width="600" />
+    <img src="ad-lab pics/3 - 7 end.png" alt="google.com confirm" width="600" />
   </ul>
 
   <hr>
