@@ -1,4 +1,3 @@
-<section class="lab-section">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +6,7 @@
   <title>Alex Madden | Projects</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
   <header>
     <h1>Alex Madden</h1>
@@ -14,207 +14,216 @@
     <nav>
       <a href="index.html">Home</a>
       <a href="projects.html">Projects</a>
-      <a href="https://www.linkedin.com/in/alex-madden-338aa3196/" target="_blank">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/alex-madden-338aa3196/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </nav>
   </header>
-  <h2>Network Connectivity Troubleshooting Lab</h2>
-  <p>
-    This lab simulates multiple real-world help desk scenarios involving network connectivity issues. 
-    Each case demonstrates how to diagnose, test, and resolve problems using common Windows tools and commands.
-  </p>
 
-  <h2>Environment</h2>
-  <ul>
-    <li>Windows 11 virtual machine (client)</li>
-    <li>Host system or router for connectivity tests</li>
-    <li>PowerShell and Command Prompt for diagnostics</li>
-    <li>Event Viewer for log review</li>
-  </ul>
+  <section class="lab-section">
+    <h2>Network Connectivity Troubleshooting Lab</h2>
+    <p>
+      This lab simulates multiple real-world help desk scenarios involving network connectivity issues.
+      Each case demonstrates how to diagnose, test, and resolve problems using common Windows tools and commands.
+    </p>
 
-  <hr>
-
-  <h2>Scenario 1: Wrong DNS Configuration</h2>
-  <p><strong>Problem:</strong> User is connected to Wi-Fi but cannot browse the web.</p>
-  <img src="ad-lab pics/Step 1 problem.png" alt="AD Lab Rename Step 1" width="600" />
-    <h3>🎥 Walkthrough Video</h3>
-<p>Watch a full walkthrough of the AD lab below:</p>
-<div class="video-left">
-  <iframe src="https://www.youtube.com/embed/NP43RZG8NEg?si=A3AD4oNHj9iSWgNF" 
-    title="Active Directory Lab Walkthrough"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-  </iframe>
-</div>
-  <p>Step by Step Diagnosis:</strong></p>
-    <h3>🛠️ Test Theory to Confirm the Problem</h3>
-  <ul>
-    <li>ipconfig /all</li>
-    <li>ping 8.8.8.8</li>
-    <li>nslookup google.com</li>
-    <img src="ad-lab pics/ipconfig all.png" alt="ipconfig" width="600" />
-    <img src="ad-lab pics/ping 8.8.8.8.png" alt="AD Lab Rename Step 1" width="600" />
-    <img src="ad-lab pics/ns lookup.png" alt="AD Lab Rename Step 1" width="600" />
- </ul>
-  <h3><strong>Conclusion</strong></h3>
-  <p>Ping to IP works, but DNS name fails. Issue traced to incorrect DNS entry.</p>
-  <h3><strong>Fix the Problem</strong></h3>
+    <h2>Environment</h2>
     <ul>
-    <li>Go into nework adapter settings and adjust DNS settings to DHCP</li>
-    <img src="ad-lab pics/change back 1.png" alt="changed step 1" width="600" />
-    <img src="ad-lab pics/change back 2.png" alt="changed step 2" width="600" />
-    <li>ipconfig /flushdns</li>
-    <li>ipconfig /renew</li>
-    <img src="ad-lab pics/flush dns.png" alt="flush dns" width="600" />
-    <img src="ad-lab pics/renew dns.png" alt="renew dns" width="600" />
-  <h3><strong>Verify the Solution</strong></h3>
-    <li>ping 8.8.8.8</li>
-    <li>nslookup google.com</li>
-    <img src="ad-lab pics/ping fixed.png" alt="ping fixed" width="600" />
-    <img src="ad-lab pics/nslookup fix.png" alt="nslookupfix" width="600" />
-    <img src="ad-lab pics/ipconfig all confirm.png" alt="ipconfig fixed" width="600" />
- </ul>
-  <hr>
+      <li>Windows 11 virtual machine (client)</li>
+      <li>Host system or router for connectivity tests</li>
+      <li>PowerShell and Command Prompt for diagnostics</li>
+      <li>Event Viewer for log review</li>
+    </ul>
 
-  <h2>Scenario 2: IP Address Conflict</h2>
-  <p><strong>Problem:</strong> The workstation randomly loses connectivity and shows timeouts when trying to reach the network gateway or external sites. This points to a possible IP address conflict on the network.</p>
-  <img src="ad-lab pics/2 -1.png" alt="Scenario 2 Problem" width="600" />
+    <hr>
 
-  <h3>🎥 Walkthrough Video</h3>
-  <p>Watch a full walkthrough of the IP conflict troubleshooting below:</p>
-  <div class="video-left">
-    <iframe src="https://www.youtube.com/embed/7jfsd1TVCDE?si=KuMLwSSe0aaDkEJC" 
-      title="Network Connectivity Troubleshooting – Scenario 2"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen>
-    </iframe>
-  </div>
+    <h2>Scenario 1: Wrong DNS Configuration</h2>
+    <p><strong>Problem:</strong> User is connected to Wi-Fi but cannot browse the web.</p>
+    <img src="ad-lab pics/Step 1 problem.png" alt="AD Lab Rename Step 1" width="600" />
 
-  <p><strong>Step by Step Diagnosis:</strong></p>
+    <h3>🎥 Walkthrough Video</h3>
+    <p>Watch a full walkthrough of the AD lab below:</p>
+    <div class="video-left">
+      <iframe src="https://www.youtube.com/embed/NP43RZG8NEg?si=A3AD4oNHj9iSWgNF"
+        title="Active Directory Lab Walkthrough"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
 
-  <h3>🛠️ Test Theory to Confirm the Problem</h3>
-  <ul>
-    <li>ipconfig /all</li>
-    <li>ping 10.0.2.2 (default gateway)</li>
-    <li>ping google.com</li>
-    <li>arp -a (optional check for conflicting MAC entries)</li>
-    <img src="ad-lab pics/2 -1.png" alt="ipconfig" width="600" />
-    <img src="ad-lab pics/2 -3.png" alt="Ping default gateway showing loss" width="600" />
-    <img src="ad-lab pics/2 -4.png" alt="Ping to domain failing" width="600" />
-  </ul>
+    <p><strong>Step by Step Diagnosis:</strong></p>
+    <h3>🛠️ Test Theory to Confirm the Problem</h3>
+    <ul>
+      <li>ipconfig /all</li>
+      <li>ping 8.8.8.8</li>
+      <li>nslookup google.com</li>
+      <img src="ad-lab pics/ipconfig all.png" alt="ipconfig" width="600" />
+      <img src="ad-lab pics/ping 8.8.8.8.png" alt="AD Lab Rename Step 1" width="600" />
+      <img src="ad-lab pics/ns lookup.png" alt="AD Lab Rename Step 1" width="600" />
+    </ul>
 
-  <h3><strong>Conclusion</strong></h3>
-  <p>Pings to the gateway and external hosts show unreachable messages and packet loss, while <code>ipconfig /all</code> reveals a manually assigned IP that matches another device on the network. This confirms an IP address conflict.</p>
+    <h3><strong>Conclusion</strong></h3>
+    <p>Ping to IP works, but DNS name fails. Issue traced to incorrect DNS entry.</p>
 
-  <h3><strong>Fix the Problem</strong></h3>
-  <ul>
-    <li>Open the network adapter IPv4 settings and switch IP and DNS back to DHCP (Obtain an IP address automatically).</li>
-    <img src="ad-lab pics/2 -5.png" alt="current ipv4 settings" width="600" />
-    <img src="ad-lab pics/2 -6 fixed.png" alt="fixed ipv4 settings" width="600" />
-    <li>ipconfig /release</li>
-    <li>ipconfig /renew</li>
-    <img src="ad-lab pics/2 -7 fixed.png" alt="Release IP lease" width="600" />
+    <h3><strong>Fix the Problem</strong></h3>
+    <ul>
+      <li>Go into network adapter settings and adjust DNS settings to DHCP</li>
+      <img src="ad-lab pics/change back 1.png" alt="changed step 1" width="600" />
+      <img src="ad-lab pics/change back 2.png" alt="changed step 2" width="600" />
+      <li>ipconfig /flushdns</li>
+      <li>ipconfig /renew</li>
+      <img src="ad-lab pics/flush dns.png" alt="flush dns" width="600" />
+      <img src="ad-lab pics/renew dns.png" alt="renew dns" width="600" />
 
-  <h3><strong>Verify the Solution</strong></h3>
-    <li>ipconfig /all (confirm a new, unique IP address is assigned)</li>
-    <li>ping 10.0.2.2</li>
-    <li>ping google.com</li>
-    <img src="ad-lab pics/2- 8 fixed.png" alt="ipconfig" width="600" />
-    <img src="ad-lab pics/2-9 fixed.png" alt="Ping to domain successful" width="600" />
-    <img src="ad-lab pics/2-10 done.png" alt="google.com confirm" width="600" />
-  </ul>
-  <hr>
+      <h3><strong>Verify the Solution</strong></h3>
+      <li>ping 8.8.8.8</li>
+      <li>nslookup google.com</li>
+      <img src="ad-lab pics/ping fixed.png" alt="ping fixed" width="600" />
+      <img src="ad-lab pics/nslookup fix.png" alt="nslookupfix" width="600" />
+      <img src="ad-lab pics/ipconfig all confirm.png" alt="ipconfig fixed" width="600" />
+    </ul>
 
-  
-  <h2>Scenario 3: APIPA / 169.254 Address (DHCP Failure)</h2>
-  <p><strong>Problem:</strong> The workstation assigns itself a 169.254.x.x address with no default gateway, which indicates a failure to obtain a valid IP configuration from DHCP and results in no network or internet connectivity.</p>
-  <img src="ad-lab pics/3 -1.png" alt="Scenario 3 Problem" width="600" />
+    <hr>
 
-  <h3>🎥 Walkthrough Video</h3>
-  <p>Watch a full walkthrough of the APIPA and DHCP troubleshooting below:</p>
-  <div class="video-left">
-    <iframe src="https://www.youtube.com/embed/YnrCtWDFtx4?si=rXXCPMQm6GCX0tNj" 
-      title="Network Connectivity Troubleshooting – Scenario 3"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen>
-    </iframe>
-  </div>
+    <h2>Scenario 2: IP Address Conflict</h2>
+    <p><strong>Problem:</strong> The workstation randomly loses connectivity and shows timeouts when trying to reach the network gateway or external sites. This points to a possible IP address conflict on the network.</p>
+    <img src="ad-lab pics/2 -1.png" alt="Scenario 2 Problem" width="600" />
 
-  <p><strong>Step by Step Diagnosis:</strong></p>
+    <h3>🎥 Walkthrough Video</h3>
+    <p>Watch a full walkthrough of the IP conflict troubleshooting below:</p>
+    <div class="video-left">
+      <iframe src="https://www.youtube.com/embed/7jfsd1TVCDE?si=KuMLwSSe0aaDkEJC"
+        title="Network Connectivity Troubleshooting – Scenario 2"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
 
-  <h3>🛠️ Test Theory to Confirm the Problem</h3>
-  <ul>
-    <li>ipconfig /all</li>
-    <li>ping 192.168.68.1 (default gateway)</li>
-    <li>ping 8.8.8.8</li>
-    <li>ping google.com</li>
-    <img src="ad-lab pics/3 - 2.png" alt="ipconfig showing 169.254 address" width="600" />
-  </ul>
+    <p><strong>Step by Step Diagnosis:</strong></p>
 
-  <h3><strong>Conclusion</strong></h3>
-  <p>The system is assigned a 169.254.x.x address with no default gateway, which indicates a DHCP failure. Without a valid gateway or DNS configuration, the workstation is isolated and cannot reach the local network or the internet.</p>
+    <h3>🛠️ Test Theory to Confirm the Problem</h3>
+    <ul>
+      <li>ipconfig /all</li>
+      <li>ping 10.0.2.2 (default gateway)</li>
+      <li>ping google.com</li>
+      <li>arp -a (optional check for conflicting MAC entries)</li>
+      <img src="ad-lab pics/2 -1.png" alt="ipconfig" width="600" />
+      <img src="ad-lab pics/2 -3.png" alt="Ping default gateway showing loss" width="600" />
+      <img src="ad-lab pics/2 -4.png" alt="Ping to domain failing" width="600" />
+    </ul>
 
-  <h3><strong>Fix the Problem</strong></h3>
-  <ul>
-    <li>Open the network adapter IPv4 settings and switch IP and DNS back to DHCP (Obtain an IP address automatically).</li>
-    <img src="ad-lab pics/3 - 3.png" alt="APIPA IPv4 settings" width="600" />
-    <li>ipconfig /release</li>
-    <li>ipconfig /renew</li>
-    <img src="ad-lab pics/3 - 4.png" alt="DHCP lease renewed" width="600" />
+    <h3><strong>Conclusion</strong></h3>
+    <p>Pings to the gateway and external hosts show unreachable messages and packet loss, while <code>ipconfig /all</code> reveals a manually assigned IP that matches another device on the network. This confirms an IP address conflict.</p>
 
-  <h3><strong>Verify the Solution</strong></h3>
-    <li>ipconfig /all (confirm a valid DHCP-assigned IP and default gateway)</li>
-    <li>ping 192.168.68.1</li>
-    <li>ping 8.8.8.8</li>
-    <li>ping google.com</li>
-    <img src="ad-lab pics/3 - 5.png" alt="ipconfig showing valid IP" width="600" />
-    <img src="ad-lab pics/3 - 6.png" alt="Ping external IP successful" width="600" />
-    <img src="ad-lab pics/3 - 7 end.png" alt="google.com confirm" width="600" />
-  </ul>
+    <h3><strong>Fix the Problem</strong></h3>
+    <ul>
+      <li>Open the network adapter IPv4 settings and switch IP and DNS back to DHCP (Obtain an IP address automatically).</li>
+      <img src="ad-lab pics/2 -5.png" alt="current ipv4 settings" width="600" />
+      <img src="ad-lab pics/2 -6 fixed.png" alt="fixed ipv4 settings" width="600" />
+      <li>ipconfig /release</li>
+      <li>ipconfig /renew</li>
+      <img src="ad-lab pics/2 -7 fixed.png" alt="Release IP lease" width="600" />
 
-  <hr>
+      <h3><strong>Verify the Solution</strong></h3>
+      <li>ipconfig /all (confirm a new, unique IP address is assigned)</li>
+      <li>ping 10.0.2.2</li>
+      <li>ping google.com</li>
+      <img src="ad-lab pics/2- 8 fixed.png" alt="ipconfig" width="600" />
+      <img src="ad-lab pics/2-9 fixed.png" alt="Ping to domain successful" width="600" />
+      <img src="ad-lab pics/2-10 done.png" alt="google.com confirm" width="600" />
+    </ul>
+
+    <hr>
+
+    <h2>Scenario 3: APIPA / 169.254 Address (DHCP Failure)</h2>
+    <p><strong>Problem:</strong> The workstation assigns itself a 169.254.x.x address with no default gateway, which indicates a failure to obtain a valid IP configuration from DHCP and results in no network or internet connectivity.</p>
+    <img src="ad-lab pics/3 -1.png" alt="Scenario 3 Problem" width="600" />
+
+    <h3>🎥 Walkthrough Video</h3>
+    <p>Watch a full walkthrough of the APIPA and DHCP troubleshooting below:</p>
+    <div class="video-left">
+      <iframe src="https://www.youtube.com/embed/YnrCtWDFtx4?si=rXXCPMQm6GCX0tNj"
+        title="Network Connectivity Troubleshooting – Scenario 3"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <p><strong>Step by Step Diagnosis:</strong></p>
+
+    <h3>🛠️ Test Theory to Confirm the Problem</h3>
+    <ul>
+      <li>ipconfig /all</li>
+      <li>ping 192.168.68.1 (default gateway)</li>
+      <li>ping 8.8.8.8</li>
+      <li>ping google.com</li>
+      <img src="ad-lab pics/3 - 2.png" alt="ipconfig showing 169.254 address" width="600" />
+    </ul>
+
+    <h3><strong>Conclusion</strong></h3>
+    <p>The system is assigned a 169.254.x.x address with no default gateway, which indicates a DHCP failure. Without a valid gateway or DNS configuration, the workstation is isolated and cannot reach the local network or the internet.</p>
+
+    <h3><strong>Fix the Problem</strong></h3>
+    <ul>
+      <li>Open the network adapter IPv4 settings and switch IP and DNS back to DHCP (Obtain an IP address automatically).</li>
+      <img src="ad-lab pics/3 - 3.png" alt="APIPA IPv4 settings" width="600" />
+      <li>ipconfig /release</li>
+      <li>ipconfig /renew</li>
+      <img src="ad-lab pics/3 - 4.png" alt="DHCP lease renewed" width="600" />
+
+      <h3><strong>Verify the Solution</strong></h3>
+      <li>ipconfig /all (confirm a valid DHCP-assigned IP and default gateway)</li>
+      <li>ping 192.168.68.1</li>
+      <li>ping 8.8.8.8</li>
+      <li>ping google.com</li>
+      <img src="ad-lab pics/3 - 5.png" alt="ipconfig showing valid IP" width="600" />
+      <img src="ad-lab pics/3 - 6.png" alt="Ping external IP successful" width="600" />
+      <img src="ad-lab pics/3 - 7 end.png" alt="google.com confirm" width="600" />
+    </ul>
+
+    <hr>
 
     <h2>Scenario 4: Proxy Misconfiguration</h2>
-  <p><strong>Problem:</strong> Ping tests work, but websites will not load in the browser. This usually points to an application-level issue instead of a network-layer issue.</p>
-  <img src="ad-lab pics/4 - 1.png" alt="Scenario 4 Problem" width="600" />
+    <p><strong>Problem:</strong> Ping tests work, but websites will not load in the browser. This usually points to an application-level issue instead of a network-layer issue.</p>
+    <img src="ad-lab pics/4 - 1.png" alt="Scenario 4 Problem" width="600" />
 
-  <h3>🎥 Walkthrough Video</h3>
-  <p>Watch a full walkthrough of the proxy troubleshooting below:</p>
-  <div class="video-left">
-    <iframe src="https://www.youtube.com/embed/dpK66HKlgAQ?si=uzRRJoOyQDQZaOhr" 
-      title="Network Connectivity Troubleshooting – Scenario 4"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen>
-    </iframe>
-  </div>
+    <h3>🎥 Walkthrough Video</h3>
+    <p>Watch a full walkthrough of the proxy troubleshooting below:</p>
+    <div class="video-left">
+      <iframe src="https://www.youtube.com/embed/dpK66HKlgAQ?si=uzRRJoOyQDQZaOhr"
+        title="Network Connectivity Troubleshooting – Scenario 4"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
 
-  <p><strong>Step by Step Diagnosis:</strong></p>
+    <p><strong>Step by Step Diagnosis:</strong></p>
 
-  <h3>🛠️ Test Theory to Confirm the Problem</h3>
-  <ul>
-    <li>ping 192.168.68.1 (default gateway)</li>
-    <li>ping 8.8.8.8</li>
-    <li>ping google.com</li>
-    <li>Test browser access (google.com fails to load)</li>
-    <img src="ad-lab pics/4 - 2.png" alt="Ping gateway successful" width="600" />
-    <img src="ad-lab pics/4 - 3.png" alt="Ping external IP successful" width="600" />
-  </ul>
+    <h3>🛠️ Test Theory to Confirm the Problem</h3>
+    <ul>
+      <li>ping 192.168.68.1 (default gateway)</li>
+      <li>ping 8.8.8.8</li>
+      <li>ping google.com</li>
+      <li>Test browser access (google.com fails to load)</li>
+      <img src="ad-lab pics/4 - 2.png" alt="Ping gateway successful" width="600" />
+      <img src="ad-lab pics/4 - 3.png" alt="Ping external IP successful" width="600" />
+    </ul>
 
-  <h3><strong>Conclusion</strong></h3>
-  <p>Because pings to the gateway, an external IP, and a domain name all succeed, the network connection and DNS resolution are working. The browser failure points to a proxy configuration issue at the application level.</p>
+    <h3><strong>Conclusion</strong></h3>
+    <p>Because pings to the gateway, an external IP, and a domain name all succeed, the network connection and DNS resolution are working. The browser failure points to a proxy configuration issue at the application level.</p>
 
-  <h3><strong>Fix the Problem</strong></h3>
-  <ul>
-    <li>Open Internet Options → Connections → LAN settings and disable the proxy (uncheck “Use a proxy server for your LAN”).</li>
-    <img src="ad-lab pics/4 - 4.png" alt="Proxy enabled in LAN settings" width="600" />
-    <li>Refresh the browser and retry the website.</li>
+    <h3><strong>Fix the Problem</strong></h3>
+    <ul>
+      <li>Open Internet Options → Connections → LAN settings and disable the proxy (uncheck “Use a proxy server for your LAN”).</li>
+      <img src="ad-lab pics/4 - 4.png" alt="Proxy enabled in LAN settings" width="600" />
+      <li>Refresh the browser and retry the website.</li>
 
-  <h3><strong>Verify the Solution</strong></h3>
-    <li>Confirm websites load normally in the browser</li>
-    <img src="ad-lab pics/4 - 5.png" alt="Browser loads successfully" width="600" />
+      <h3><strong>Verify the Solution</strong></h3>
+      <li>Confirm websites load normally in the browser</li>
+      <img src="ad-lab pics/4 - 5.png" alt="Browser loads successfully" width="600" />
+    </ul>
+  </section>
+</body>
+</html>
 
-  </ul>
-
-</section>
 
 
 
